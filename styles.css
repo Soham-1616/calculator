@@ -1,0 +1,108 @@
+:root{
+  --bg:#D8BFF7;
+  --panel:#ffffff;
+  --shadow-dark:rgba(163, 131, 203, 0.45);
+  --shadow-light:rgba(255,255,255,0.9);
+  --text:#4A4A4A;
+  --muted:#6b7280;
+  --pink:#E9BEE7;
+}
+
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+}
+body{
+  margin:0;
+  font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background:var(--bg);
+  display:grid;
+  place-items:center;
+}
+
+.app{
+  width:100%;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.calculator{
+  background:var(--panel);
+  padding:32px 28px 36px;
+  width:min(420px, 92vw);
+  border-radius:28px;
+  box-shadow:
+    18px 18px 36px var(--shadow-dark),
+    -10px -10px 28px var(--shadow-light);
+}
+
+.display{
+  height:84px;
+  background:#EEF6F4;
+  color:#3b3b3b;
+  border-radius:22px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  padding:0 22px;
+  font-size:48px;
+  font-weight:600;
+  letter-spacing:1px;
+  box-shadow:
+    inset 6px 6px 12px rgba(0,0,0,0.06),
+    6px 6px 16px rgba(0,0,0,0.06),
+    -6px -6px 16px rgba(255,255,255,0.9);
+}
+
+.grid{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows:86px;
+  gap:20px;
+}
+
+.btn{
+  appearance:none;
+  border:none;
+  border-radius:999px;
+  background:#EEF1F6;
+  color:var(--text);
+  font-size:24px;
+  font-weight:500;
+  cursor:pointer;
+  box-shadow:
+    8px 8px 16px rgba(163, 131, 203, 0.28),
+    -6px -6px 14px rgba(255,255,255,0.95);
+  transition: transform .06s ease, box-shadow .2s ease, background .2s ease, opacity .2s ease;
+}
+
+.btn-small{ font-size:20px; }
+
+.btn:hover{
+  box-shadow:
+    6px 6px 12px rgba(163, 131, 203, 0.35),
+    -6px -6px 14px rgba(255,255,255,0.95);
+  transform: translateY(-1px);
+}
+.btn:active{
+  transform: translateY(2px);
+  box-shadow:
+    inset 5px 5px 10px rgba(163, 131, 203, 0.25),
+    inset -5px -5px 10px rgba(255,255,255,0.9);
+}
+
+.btn-equals{
+  grid-column: 3 / span 2;
+  background: var(--pink);
+}
+
+/* Responsiveness */
+@media (max-width: 360px){
+  .display{ font-size:40px; height:78px; }
+  .grid{ gap:16px; grid-auto-rows:76px; }
+}
+
+
